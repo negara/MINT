@@ -1,0 +1,4 @@
+include ':app'
+include ':androidutils'
+
+project(':androidutils').projectDir = new File(settingsDir, 'third_party/androidutils')

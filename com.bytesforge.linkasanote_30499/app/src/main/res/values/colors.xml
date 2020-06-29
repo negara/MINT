@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ LaaNo Android application
+  ~
+  ~ @author Aleksandr Borisenko <developer@laano.net>
+  ~ Copyright (C) 2017 Aleksandr Borisenko
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- NOTE: workaround since LOLLIPOP -->
+    <color name="abc_input_method_navigation_guard" tools:override="true">@color/color_primary_dark</color>
+
+    <color name="color_primary">@color/indigo_500</color>
+    <color name="color_primary_dark">@color/indigo_700</color>
+    <color name="color_accent">@color/red_A200</color>
+    <color name="tabs_text">@color/indigo_200</color>
+    <color name="tabs_text_selected">@android:color/white</color>
+    <color name="token">@android:color/transparent</color>
+    <color name="token_stroke">@color/indigo_300</color>
+    <color name="token_text">@color/indigo_500</color>
+    <color name="token_selected">@color/indigo_300</color>
+    <color name="token_stroke_selected">@color/indigo_300</color>
+    <!-- android:color/background_material_light -->
+    <color name="token_text_selected">@color/grey_50</color>
+    <color name="item_filter">@color/indigo_100</color>
+    <color name="item_reading_mode_filter">@color/indigo_50</color>
+    <color name="item_conflicted">@color/red_100</color>
+    <color name="item_link_selected">@color/grey_50</color>
+    <color name="item_favorite_selected">@color/grey_100</color>
+    <color name="item_note_normal_mode_selected">@color/item_link_selected</color>
+    <color name="item_note_reading_mode_selected">@color/item_favorite_selected</color>
+    <color name="sync_state_neutral">@android:color/white</color>
+    <color name="sync_state_success">@color/green_500</color>
+    <color name="sync_state_error">@color/red_400</color>
+    <color name="sync_state_conflict">@color/red_400</color>
+    <color name="note_background">@color/grey_100</color>
+    <color name="note_conflicted_background">@color/red_50</color>
+    <color name="link_background">@color/note_background</color>
+    <color name="link_note_divider">@color/grey_300</color>
+    <color name="dialog_title_background">@color/grey_100</color>
+    <color name="about_nextcloud_button">@color/indigo_300</color>
+
+    <!-- Misc -->
+    <color name="green_500">#4CAF50</color>
+
+    <!-- Indigo: primary -->
+    <color name="indigo_50">#E8EAF6</color>
+    <color name="indigo_100">#C5CAE9</color>
+    <color name="indigo_200">#9FA8DA</color>
+    <color name="indigo_300">#7986CB</color>
+    <color name="indigo_400">#5C6BC0</color>
+    <color name="indigo_500">#3F51B5</color>
+    <color name="indigo_600">#3949AB</color>
+    <color name="indigo_700">#303F9F</color>
+    <color name="indigo_800">#283593</color>
+    <color name="indigo_900">#1A237E</color>
+    <color name="indigo_A100">#8C9EFF</color>
+    <color name="indigo_A200">#536DFE</color>
+    <color name="indigo_A400">#3D5AFE</color>
+    <color name="indigo_A700">#304FFE</color>
+
+    <!-- Red: accent -->
+    <color name="red_50">#FFEBEE</color>
+    <color name="red_100">#FFCDD2</color>
+    <color name="red_200">#EF9A9A</color>
+    <color name="red_300">#E57373</color>
+    <color name="red_400">#EF5350</color>
+    <color name="red_500">#F44336</color>
+    <color name="red_600">#E53935</color>
+    <color name="red_700">#D32F2F</color>
+    <color name="red_800">#C62828</color>
+    <color name="red_900">#B71C1C</color>
+    <color name="red_A100">#FF8A80</color>
+    <color name="red_A200">#FF5252</color>
+    <color name="red_A400">#FF1744</color>
+    <color name="red_A700">#D50000</color>
+
+    <!-- Grey -->
+    <color name="grey_50">#FAFAFA</color>
+    <color name="grey_100">#F5F5F5</color>
+    <color name="grey_200">#EEEEEE</color>
+    <color name="grey_300">#E0E0E0</color>
+    <color name="grey_400">#BDBDBD</color>
+    <color name="grey_500">#9E9E9E</color>
+    <color name="grey_600">#757575</color>
+    <color name="grey_700">#616161</color>
+    <color name="grey_800">#424242</color>
+    <color name="grey_900">#212121</color>
+</resources>

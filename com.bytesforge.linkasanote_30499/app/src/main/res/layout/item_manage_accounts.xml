@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ LaaNo Android application
+  ~
+  ~ @author Aleksandr Borisenko <developer@laano.net>
+  ~ Copyright (C) 2017 Aleksandr Borisenko
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable name="accountItem" type="com.bytesforge.linkasanote.manageaccounts.AccountItem" />
+        <variable name="presenter"
+            type="com.bytesforge.linkasanote.manageaccounts.ManageAccountsPresenter" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_manage_accounts_layout_height">
+
+        <ImageView
+            android:id="@+id/account_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/item_manage_accounts_logo"
+            android:paddingStart="@dimen/recycler_view_left_button_padding_start"
+            android:paddingEnd="@dimen/recycler_view_button_padding"
+            android:paddingTop="@dimen/recycler_view_button_padding_vertical"
+            android:paddingBottom="@dimen/recycler_view_button_padding_vertical"
+            app:srcCompat="@drawable/ic_person"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{accountItem.displayName}"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginStart="@dimen/recycler_view_text_to_button_margin_start"
+            android:layout_marginEnd="@dimen/recycler_view_nearby_button_margin_end"
+            android:textAppearance="?android:attr/textAppearanceListItem"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@+id/account_name"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/account_edit_button"
+            app:layout_constraintLeft_toRightOf="@+id/account_logo" />
+
+        <TextView
+            android:id="@+id/account_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{accountItem.accountName}"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_marginStart="@dimen/recycler_view_text_to_button_margin_start"
+            android:layout_marginEnd="@dimen/recycler_view_nearby_button_margin_end"
+            app:layout_constraintTop_toBottomOf="@+id/user_name"
+            app:layout_constraintRight_toLeftOf="@+id/account_edit_button"
+            app:layout_constraintLeft_toRightOf="@+id/account_logo"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageButton
+            android:id="@+id/account_edit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/item_manage_accounts_edit_button"
+            android:paddingTop="@dimen/recycler_view_button_padding_vertical"
+            android:paddingBottom="@dimen/recycler_view_button_padding_vertical"
+            android:paddingEnd="@dimen/recycler_view_button_padding"
+            android:paddingStart="@dimen/recycler_view_button_padding"
+            android:onClick="@{() -> presenter.onEditClick(accountItem.account)}"
+            android:onLongClick="@{() -> presenter.onImageButtonLongClick(accountEditButton)}"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:srcCompat="@drawable/ic_edit"
+            app:layout_constraintRight_toLeftOf="@+id/account_delete_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Button.RecyclerView" />
+
+        <ImageButton
+            android:id="@+id/account_delete_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/item_manage_accounts_delete_button"
+            android:paddingTop="@dimen/recycler_view_button_padding_vertical"
+            android:paddingBottom="@dimen/recycler_view_button_padding_vertical"
+            android:paddingEnd="@dimen/recycler_view_right_button_padding_end"
+            android:paddingStart="@dimen/recycler_view_button_padding"
+            android:onClick="@{() -> presenter.onRemoveClick(accountItem.account)}"
+            android:onLongClick="@{() -> presenter.onImageButtonLongClick(accountDeleteButton)}"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:srcCompat="@drawable/ic_delete"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/Button.RecyclerView" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

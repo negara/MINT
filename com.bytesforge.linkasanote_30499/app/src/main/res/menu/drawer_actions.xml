@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ LaaNo Android application
+  ~
+  ~ @author Aleksandr Borisenko <developer@laano.net>
+  ~ Copyright (C) 2017 Aleksandr Borisenko
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/accounts_menu_group">
+
+        <item
+            android:id="@+id/add_account_menu_item"
+            android:icon="@drawable/ic_person_add"
+            android:title="@string/drawer_actions_add_account" />
+        <item
+            android:id="@+id/manage_accounts_menu_item"
+            android:icon="@drawable/ic_person"
+            android:title="@string/drawer_actions_manage_accounts" />
+    </group>
+    <group android:id="@+id/sync_menu_group">
+
+        <item
+            android:id="@+id/sync_menu_item"
+            android:icon="@drawable/ic_sync"
+            android:title="@string/drawer_actions_sync_start"
+            android:enabled="false" />
+        <item
+            android:id="@+id/sync_log_menu_item"
+            android:icon="@drawable/ic_receipt"
+            android:title="@string/drawer_actions_sync_log" />
+    </group>
+    <group android:id="@+id/application_menu_group">
+
+        <item
+            android:id="@+id/settings_menu_item"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/drawer_actions_settings" />
+        <item
+            android:id="@+id/about_menu_item"
+            android:icon="@drawable/ic_info"
+            android:title="@string/drawer_actions_about" />
+    </group>
+</menu>

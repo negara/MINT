@@ -1,0 +1,163 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion SDK_VERSION
+    buildToolsVersion BUILD_TOOL_VERSION
+
+    defaultConfig {
+        applicationId "com.bytesforge.linkasanote"
+        minSdkVersion MIN_SDK_VERSION
+        targetSdkVersion SDK_VERSION
+        versionCode buildVersionCode()
+        versionName VERSION_NAME
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        resConfigs "en", "ru-rRU"
+        buildConfigField "long", "BUILD_TIMESTAMP", System.currentTimeMillis() + "L"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    /**
+     * To sign release build, create the file release-signing.properties with the follow content:
+     *
+     * signingStoreLocation=/path/to/key.store
+     * signingStorePassword=xxx
+     * signingKeyAlias=alias
+     * signingKeyPassword=xxx
+     */
+    File releaseSigning = project.rootProject.file('release-signing.properties')
+    if (releaseSigning.exists()) {
+        Properties signingProperties = new Properties()
+        releaseSigning.withInputStream { signingProperties.load(it) }
+
+        // NOTE: signingProperties.hasProperty is not working
+        println "Found release-signing.properties, will try to sign the build..."
+    } else {
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+            multiDexEnabled true
+        }
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            multiDexEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+        htmlReport true
+        htmlOutput file("$project.buildDir/reports/lint/lint.html")
+    }
+
+    flavorDimensions "mode"
+    productFlavors {
+        mock {
+            applicationIdSuffix = ".mock"
+        }
+        prod
+    }
+
+    packagingOptions {
+        exclude 'META-INF/CHANGES'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/README'
+        exclude 'META-INF/README.txt'
+        exclude 'META-INF/README.md'
+        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/*.*.version'
+    }
+
+    android.variantFilter { variant ->
+        if (variant.buildType.name == 'release'
+                && variant.getFlavors().get(0).name == 'mock') {
+            variant.setIgnore(true);
+        }
+    }
+
+    testOptions.unitTests.all {
+        testLogging {
+            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+            showStandardStreams = true
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    sourceSets {
+        String sharedTestDir = 'src/sharedTest/java'
+        test {
+            java.srcDir sharedTestDir
+        }
+        androidTest {
+            java.srcDir sharedTestDir
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':androidutils')
+    implementation 'com.github.alexcustos:TokenAutoComplete:2.1.4'
+
+    implementation "com.android.support:multidex:${multidexVersion}"
+    implementation "com.android.support:appcompat-v7:${supportLibraryVersion}"
+    implementation "com.android.support:design:${supportLibraryVersion}"
+    implementation "com.android.support:preference-v14:${supportLibraryVersion}"
+    implementation "com.android.support:recyclerview-v7:${supportLibraryVersion}"
+    implementation "com.android.support:cardview-v7:${supportLibraryVersion}"
+    implementation "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}"
+
+    implementation "com.google.guava:guava:${guavaVersion}-android"
+    implementation "com.github.nextcloud:android-library:${nextcloudLibraryVersion}"
+    implementation "org.jsoup:jsoup:${jsoupVersion}"
+
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxjava:${rxjavaVersion}"
+    implementation "io.reactivex.rxjava2:rxandroid:${rxandroidVersion}"
+
+    // Dagger 2
+    annotationProcessor "com.google.dagger:dagger-compiler:${daggerVersion}"
+    implementation "com.google.dagger:dagger:${daggerVersion}"
+    compileOnly "javax.annotation:jsr250-api:${jsr250ApiVersion}"
+
+    // Stetho
+    implementation "com.facebook.stetho:stetho:${stethoVersion}"
+
+    // Local unit tests
+    testImplementation "junit:junit:${junitVersion}"
+    testImplementation "org.mockito:mockito-core:${mockitoVersion}"
+    testImplementation "org.powermock:powermock-module-junit4:${powermockVersion}"
+    testImplementation "org.powermock:powermock-api-mockito2:${powermockVersion}"
+    testImplementation "org.slf4j:slf4j-api:${slf4jVersion}"
+    testImplementation "org.slf4j:slf4j-simple:${slf4jVersion}"
+
+    // Espresso Testing
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:${espressoVersion}"
+    androidTestImplementation "com.android.support.test.espresso:espresso-contrib:${espressoVersion}"
+    androidTestImplementation "com.android.support.test:runner:${testVersion}"
+    androidTestImplementation "com.android.support.test:rules:${testVersion}"
+    androidTestImplementation "org.mockito:mockito-core:${mockitoVersion}"
+    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:${dexmakerVersion}"
+    androidTestImplementation "com.android.support.test.uiautomator:uiautomator-v18:${uiAutomatorVersion}"
+
+    // Resolve conflicts
+    implementation "com.google.code.findbugs:jsr305:${findbugsJsr305Version}"
+    androidTestImplementation "com.android.support:recyclerview-v7:${supportLibraryVersion}"
+    androidTestImplementation "com.android.support:appcompat-v7:${supportLibraryVersion}"
+    androidTestImplementation "com.android.support:design:${supportLibraryVersion}"
+}

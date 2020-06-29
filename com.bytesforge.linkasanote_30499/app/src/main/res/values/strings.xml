@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ LaaNo Android application
+  ~
+  ~ @author Aleksandr Borisenko <developer@laano.net>
+  ~ Copyright (C) 2017 Aleksandr Borisenko
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <string name="app_name">LaaNo</string>
+    <string name="app_name_full">LaaNo: Link as a Note</string>
+    <string name="placeholder_title">placeholder</string>
+    <string name="placeholder_text">This is a placeholder</string>
+    <string name="error_database">Cannot access the database, please reinstall the application</string>
+    <string name="status_loading">Loading…</string>
+    <string name="status_enabled">enabled</string>
+    <string name="status_disabled">disabled</string>
+    <string name="snackbar_no_permission">Unable to continue, required permission was not granted</string>
+    <string name="snackbar_something_wrong">Something went wrong, please try again</string>
+    <string name="toast_double_back_press">Press once again to exit</string>
+    <string name="toast_error">Error</string>
+    <string name="toast_sync_error">Sync error</string>
+    <string name="toast_sync_conflict">Sync conflict</string>
+    <string name="toast_sync_success">Synced</string>
+    <string name="toast_sync_unsynced">Partially synced</string>
+    <string name="toast_backup_success">Backed up</string>
+    <string name="toast_restore_success">Restored</string>
+    <string name="toast_conflict_resolved">Resolved</string>
+    <string name="toast_tags_duplicate_removed">Duplicate</string>
+    <string name="toast_empty">Empty</string>
+    <string name="toast_clipboard_cleared">Clipboard is cleared</string>
+    <string name="validation_error_tags_invalid_char">Only alphanumeric and spaces are allowed here, comma is used as the separator</string>
+    <string name="drawer_actions_settings">Settings</string>
+    <string name="drawer_actions_about">About</string>
+    <string name="drawer_actions_add_account">Add account</string>
+    <string name="drawer_actions_manage_accounts">Manage accounts</string>
+    <string name="drawer_actions_sync_start">Start sync</string>
+    <string name="drawer_actions_sync_log">Sync log</string>
+    <string name="drawer_actions_sync_in_progress">Sync in progress…</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="snackbar_button_ok">OK</string>
+    <string name="dialog_button_ok">OK</string>
+    <string name="dialog_button_cancel">Cancel</string>
+    <string name="dialog_button_delete">Delete</string>
+    <string name="dialog_button_keep_notes">Keep Notes</string>
+    <string name="dialog_button_upload">Upload</string>
+    <string name="dialog_button_download">Download</string>
+    <string name="dialog_button_continue">Continue</string>
+    <string name="dialog_button_settings">Settings</string>
+    <string name="dialog_button_retry">Retry</string>
+    <string name="laano_tab_links_title">Links</string>
+    <string name="laano_tab_favorites_title">Favorites</string>
+    <string name="laano_tab_notes_title">Notes</string>
+    <string name="laano_permission_get_accounts">GET ACCOUNTS (Contacts) permission is needed to show the list of existing accounts</string>
+    <string name="laano_account_added">A new account has been added</string>
+    <string name="laano_offline">Application offline, please enable Internet connection</string>
+    <string name="laano_not_syncable">Unable to access the Cloud storage, please log in again</string>
+    <string name="laano_shortcut_add_link">Add Link</string>
+    <string name="laano_shortcut_add_favorite">Add Favorite</string>
+    <string name="laano_shortcut_add_note">Add Note</string>
+    <string name="pref_category_application">Application</string>
+    <string name="pref_title_links_expanding">Expand Link cards</string>
+    <string name="pref_summary_links_expanding">Show all Link\'s Notes when the app is opened</string>
+    <string name="pref_title_notes_expanding">Expand Notes</string>
+    <string name="pref_summary_notes_expanding">Show the whole card for all Notes when the app is opened</string>
+    <string name="pref_title_backup">Backup database</string>
+    <string name="pref_title_restore">Restore database</string>
+    <string name="pref_category_synchronization">Synchronization</string>
+    <string name="pref_title_sync_directory">Directory name on the Cloud storage</string>
+    <string name="pref_title_sync_interval">Sync interval</string>
+    <string name="pref_sync_interval_manual">Manual mode</string>
+    <string name="pref_sync_interval_15m">Every 15 minutes</string>
+    <string name="pref_sync_interval_hour">Every hour</string>
+    <string name="pref_sync_interval_3h">Every 3 hours</string>
+    <string name="pref_sync_interval_day">Once a day</string>
+    <string name="pref_sync_interval_notice">(local modifications immediately)</string>
+    <string name="pref_title_sync_upload_to_empty">Always upload to the empty storage</string>
+    <string name="pref_summary_sync_upload_to_empty">Even synced items are going to be uploaded to the empty Cloud storage</string>
+    <string name="pref_title_sync_protect_local">Protect local storage</string>
+    <string name="pref_summary_sync_protect_local">If Cloud item is removed, mark synced Local as conflicted instead of delete it</string>
+    <string name="pref_category_clipboard">Clipboard</string>
+    <string name="pref_title_clipboard_link_get_metadata">Retrieve the metadata for URLs</string>
+    <string name="pref_summary_clipboard_link_get_metadata">Download %s of the document and search for the metadata if a URL is found in the clipboard</string>
+    <string name="pref_title_clipboard_link_follow">Follow server redirects</string>
+    <string name="pref_summary_clipboard_link_follow">Find the target document, then normalize its URL and use it instead the original one</string>
+    <string name="pref_title_clipboard_fill_in_forms">Automatically fill in forms</string>
+    <string name="pref_summary_clipboard_fill_in_forms">Paste a normalized and extend clipboard content to the new forms</string>
+    <string name="pref_title_clipboard_parameter_white_list">Preserve parameters in the URL query</string>
+    <string name="pref_summary_clipboard_parameter_white_list">Completely remove the query string from the URL</string>
+    <string name="pref_snackbar_backup_failed">Backup is failed</string>
+    <string name="pref_snackbar_permission_write_external_storage">WRITE EXTERNAL STORAGE (Access files) permission is needed to store the backup</string>
+    <string name="pref_snackbar_restore_failed">Restore is failed: %s</string>
+    <string name="actionbar_title_settings">Settings</string>
+    <string name="actionbar_title_new_favorite">New Favorite</string>
+    <string name="actionbar_title_edit_favorite">Edit Favorite</string>
+    <string name="actionbar_title_about">About</string>
+    <string name="filter_all">All</string>
+    <string name="filter_link">Selected Link</string>
+    <string name="filter_favorite">Selected Favorite</string>
+    <string name="filter_note">Selected Note</string>
+    <string name="filter_no_tags">With no Tags</string>
+    <string name="filter_unbound">Unbound</string>
+    <string name="filter_conflicted">Conflicted</string>
+    <string name="add_edit_account_permission_get_accounts">GET ACCOUNTS (Contacts) permission is needed to check the possibility to add a new account</string>
+    <string name="add_edit_accounts_unsupported_multiple_accounts">Multiple accounts are not supported yet</string>
+    <string name="add_edit_account_nextcloud_description">Nextcloud storage will be used to synchronize the application data</string>
+    <string name="add_edit_account_nextcloud_url_hint">Server address https://</string>
+    <string name="add_edit_account_nextcloud_url_refresh_description">Refresh connection</string>
+    <string name="add_edit_account_nextcloud_server_status_testing">Testing connection…</string>
+    <string name="add_edit_account_nextcloud_username_hint">Username</string>
+    <string name="add_edit_account_nextcloud_password_hint">Password</string>
+    <string name="add_edit_account_nextcloud_login_button">Connect</string>
+    <string name="add_edit_account_nextcloud_about">About Nextcloud</string>
+    <string name="add_edit_account_nextcloud_auth_status_checking">Checking credentials…</string>
+    <string name="add_edit_account_nextcloud_warning_empty_url">A server URL must be specified</string>
+    <string name="add_edit_account_nextcloud_info_normalized_url">The server URL has been normalized</string>
+    <string name="add_edit_account_nextcloud_warning_malformed_url">The URL is not formatted correctly</string>
+    <string name="add_edit_account_nextcloud_warning_waiting_for_service">The service is not ready yet. Waiting…</string>
+    <string name="add_edit_account_nextcloud_connection_secure">Secure connection is established</string>
+    <string name="add_edit_account_nextcloud_connection_established">Connection is established</string>
+    <string name="add_edit_account_nextcloud_connection_unsecure">Secure connection is unavailable</string>
+    <string name="add_edit_account_nextcloud_connection_no_network">No network connection</string>
+    <string name="add_edit_account_nextcloud_connection_problem">Couldn\'t establish a connection</string>
+    <string name="add_edit_account_nextcloud_server_unrecognized">Unrecognized server version or configuration</string>
+    <string name="add_edit_account_nextcloud_ssl_problem">SSL initialization failed</string>
+    <string name="add_edit_account_nextcloud_unknown_error">Unknown error occurred!</string>
+    <string name="add_edit_account_nextcloud_auth_status_wrong">Wrong username or password</string>
+    <string name="add_edit_account_nextcloud_auth_exists">An account for the same user and server already exists</string>
+    <string name="add_edit_account_nextcloud_timeout">The server is taking to long to respond</string>
+    <string name="add_edit_account_nextcloud_successful">Successful access</string>
+    <string name="add_edit_account_nextcloud_warning_no_permission">Required permission was not granted</string>
+    <string name="add_edit_account_nextcloud_warning_no_account">The account does not exist in the device</string>
+    <string name="add_edit_account_nextcloud_canceled">Canceled by the user</string>
+    <string name="item_favorites_favorite_to_links_button">Apply Favorite filter to the Links</string>
+    <string name="item_favorites_favorite_to_notes_button">Apply Favorite filter to the Notes</string>
+    <string name="item_favorites_edit_button">Edit Favorite</string>
+    <string name="item_favorites_checkbox">Select Favorite</string>
+    <string name="favorites_empty_title">List is empty</string>
+    <string name="add_edit_favorite_name_hint">Name</string>
+    <string name="add_edit_favorite_and_gate_hint">Set the filter to search for all tags</string>
+    <string name="add_edit_favorite_tags_hint">Tags</string>
+    <string name="add_edit_favorite_new_button_title">Create</string>
+    <string name="add_edit_favorite_edit_button_title">Update</string>
+    <string name="add_edit_favorite_warning_empty">Favorite\'s Name and at least one Tag must be specified</string>
+    <string name="add_edit_favorite_warning_not_existed">The requested Favorite has not already existed</string>
+    <string name="add_edit_favorite_error_name_duplicated">Favorite with the same name already exists</string>
+    <string name="actionbar_title_manage_accounts">Manage accounts</string>
+    <string name="item_manage_accounts_add">Add account</string>
+    <string name="item_manage_accounts_edit_button">Edit account</string>
+    <string name="item_manage_accounts_delete_button">Delete account</string>
+    <string name="item_manage_accounts_logo">Account</string>
+    <string name="manage_accounts_removal_confirmation_title">Delete confirmation</string>
+    <string name="manage_accounts_removal_confirmation_message">Delete account %s?\n\nThis action cannot be undone.</string>
+    <string name="manage_accounts_account_updated">The account has been successfully updated</string>
+    <string name="action_mode_favorites_delete">Delete</string>
+    <string name="action_mode_favorites_select_all">Select/Deselect all Favorites</string>
+    <string name="laano_favorites_action_mode_selected">%1$d of %2$d selected</string>
+    <string name="sync_adapter_title_failed_default">Synchronization failed</string>
+    <string name="sync_adapter_title_failed_login">log in again</string>
+    <string name="sync_adapter_text_failed_login">Cannot access the account, please log in again</string>
+    <string name="sync_adapter_title_failed_database">reinstall the application</string>
+    <string name="sync_adapter_text_failed_database">Database is corrupted, please reinstall the application</string>
+    <string name="sync_adapter_title_failed_cloud">check Cloud storage</string>
+    <string name="sync_adapter_text_failed_cloud_access">Cannot access the Cloud storage, please check if it works</string>
+    <string name="sync_adapter_text_failed_cloud_profile">Cannot retrieve profile data, please check Cloud storage</string>
+    <string name="sync_adapter_text_failed">Problem on the Cloud storage with: %s</string>
+    <string name="sync_adapter_sync_channel_name">Sync channel</string>
+    <string name="sync_adapter_sync_channel_description">Notifications regarding sync with Cloud storage</string>
+    <string name="laano_actionbar_manager_sync_title">Up: %1$d / dl: %2$d</string>
+    <string name="toolbar_favorites_item_action_mode">Switch to Edit mode</string>
+    <string name="toolbar_favorites_item_clear_clipboard">Clear clipboard</string>
+    <string name="toolbar_favorites_item_filter">Favorite filter</string>
+    <string name="toolbar_favorites_search">Search</string>
+    <string name="toolbar_favorite_item_paste">Fill in form</string>
+    <string name="favorites_delete_confirmation_title">Delete confirmation</string>
+    <string name="dialog_favorite_conflict_title_local">Local:</string>
+    <string name="dialog_favorite_conflict_title_cloud">Cloud:</string>
+    <string name="dialog_favorite_conflict_state_no_conflict">no conflict</string>
+    <string name="dialog_favorite_conflict_state_deleted">deleted</string>
+    <string name="dialog_favorite_conflict_state_updated">updated</string>
+    <string name="dialog_favorite_conflict_state_duplicated">duplicated</string>
+    <string name="dialog_favorite_conflict_state_not_found">not found</string>
+    <string name="dialog_favorite_conflict_state_error">error</string>
+    <string name="dialog_favorite_conflict_status_error_download">There was an error while downloading</string>
+    <string name="dialog_favorite_conflict_info">Search: %s</string>
+    <string name="dialog_favorite_conflict_info_and_gate">all tags (%s)</string>
+    <string name="dialog_favorite_conflict_info_or_gate">any tag (%s)</string>
+    <string name="dialog_favorite_conflict_resolved_success">Conflict is successfully resolved</string>
+    <string name="dialog_favorite_conflict_resolved_error">There was an error while trying to resolve the conflict</string>
+    <string name="dialog_favorite_conflicted_error">A conflict has been found while synchronizing</string>
+    <string name="dialog_favorite_cloud_error">There was an error while synchronizing</string>
+    <string name="dialog_favorite_save_success">Favorite has been saved</string>
+    <string name="dialog_favorite_delete_success">Selected Favorites have been deleted</string>
+    <string name="drawer_header_status_icon_description">Status of the last synchronization</string>
+    <string name="drawer_header_last_synced_label">Last synced: %s</string>
+    <string name="drawer_header_last_synced_never">never</string>
+    <string name="drawer_header_status_synced">Synced</string>
+    <string name="drawer_header_status_unsynced">Unsynced</string>
+    <string name="drawer_header_status_error">Error</string>
+    <string name="drawer_header_status_conflict">Conflicted</string>
+    <string name="drawer_header_status_no_account">No account</string>
+    <string name="drawer_header_status_ready">Ready to sync</string>
+    <string name="drawer_header_status_unknown">Unknown</string>
+    <string name="settings_fragment_snackbar_directory_error">An invalid character has been found, the setting is not changed</string>
+    <string name="settings_fragment_snackbar_interval_error">An unexpected problem has occurred, manual mode is activated</string>
+    <string name="settings_fragment_snackbar_normalized">The input has been normalized, please check the new value</string>
+    <string name="settings_fragment_sync_interval_not_available">Not available</string>
+    <string name="settings_fragment_restore_not_available">There are no backups yet, or not enough permission to check. Please try Backup first</string>
+    <string name="about_button_license_terms">license terms</string>
+    <string name="about_notices_title">Notices</string>
+    <string name="about_button_launch_google_play">rate this app</string>
+    <string name="about_app_version">Version %s</string>
+    <string name="about_fragment_error_license">Could not read the license file: %s</string>
+
+    <string name="about_license_info_version" translatable="false">This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</string>
+    <string name="about_info_warranty" translatable="false">This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</string>
+    <string name="about_notices_license_apache_v2" translatable="false">Licensed under the Apache License, Version 2.0. You may not use this program except in compliance with the License.</string>
+    <string name="about_notices_license_mit" translatable="false">Licensed under the MIT License. You may not use this program except in compliance with the License.</string>
+    <string name="about_app_copyright" translatable="false">Copyright © %1$s %2$s</string>
+
+    <string name="actionbar_title_new_link">New Link</string>
+    <string name="actionbar_title_edit_link">Edit Link</string>
+    <string name="item_links_link_open_button">Open the Link in a browser</string>
+    <string name="item_links_link_to_notes_button">Apply Link filter to the Notes</string>
+    <string name="item_links_edit_button">Edit Link</string>
+    <string name="item_links_checkbox">Select Link</string>
+    <string name="links_empty_title">List is empty</string>
+    <string name="add_edit_link_link_hint">*Link</string>
+    <string name="add_edit_link_name_hint">Name</string>
+    <string name="add_edit_link_tags_hint">Tags</string>
+    <string name="add_edit_link_new_button_title">Create</string>
+    <string name="add_edit_link_edit_button_title">Update</string>
+    <string name="add_edit_link_warning_empty">Link must be specified</string>
+    <string name="add_edit_link_warning_not_existed">The requested Link has not already existed</string>
+    <string name="add_edit_link_error_link_duplicated">This Link already exists</string>
+    <string name="add_edit_link_disabled_hint">Disable the open button, useful for broken links</string>
+    <string name="action_mode_links_delete">Delete</string>
+    <string name="action_mode_links_select_all">Select/Deselect all Links</string>
+    <string name="laano_links_action_mode_selected">%1$d of %2$d selected</string>
+    <string name="toolbar_links_item_action_mode">Switch to Edit mode</string>
+    <string name="toolbar_links_item_expand_all">Expand all cards</string>
+    <string name="toolbar_links_item_collapse_all">Collapse all cards</string>
+    <string name="toolbar_links_item_clear_clipboard">Clear clipboard</string>
+    <string name="toolbar_links_item_filter">Link filter</string>
+    <string name="toolbar_links_search">Search</string>
+    <string name="toolbar_link_item_paste">Fill in form</string>
+    <string name="links_delete_confirmation_title">Delete confirmation</string>
+    <string name="dialog_link_conflict_title_local">Local:</string>
+    <string name="dialog_link_conflict_title_cloud">Cloud:</string>
+    <string name="dialog_link_conflict_state_no_conflict">no conflict</string>
+    <string name="dialog_link_conflict_state_deleted">deleted</string>
+    <string name="dialog_link_conflict_state_updated">updated</string>
+    <string name="dialog_link_conflict_state_duplicated">duplicated</string>
+    <string name="dialog_link_conflict_state_not_found">not found</string>
+    <string name="dialog_link_conflict_state_error">error</string>
+    <string name="dialog_link_conflict_status_error_download">There was an error while downloading</string>
+    <string name="dialog_link_conflict_resolved_success">Conflict is successfully resolved</string>
+    <string name="dialog_link_conflict_resolved_error">There was an error while trying to resolve the conflict</string>
+    <string name="dialog_link_conflicted_error">A conflict has been found while synchronizing</string>
+    <string name="dialog_link_cloud_error">There was an error while synchronizing</string>
+    <string name="dialog_link_save_success">Link has been saved</string>
+    <string name="dialog_link_delete_extra_error">The Link related Notes have not been deleted properly</string>
+    <string name="dialog_link_delete_success">Selected Links have been deleted</string>
+    <string name="dialog_link_open_error">Unable to open the Link</string>
+    <string name="card_button_add_note">Add Note</string>
+    <string name="card_button_expand_notes_description">Expand all Notes</string>
+    <string name="card_button_collapse_notes_description">Collapse all Notes</string>
+
+    <string name="actionbar_title_new_note">New Note (%s)</string>
+    <string name="actionbar_title_edit_note">Edit Note (%s)</string>
+    <string name="item_notes_note_to_links_button">Apply Note filter to Links</string>
+    <string name="item_notes_edit_button">Edit Note</string>
+    <string name="item_notes_checkbox">Select Note</string>
+    <string name="notes_empty_title">List is empty</string>
+    <string name="add_edit_note_note_hint">*Note</string>
+    <string name="add_edit_note_tags_hint">Tags</string>
+    <string name="add_edit_note_new_button_title">Create</string>
+    <string name="add_edit_note_edit_button_title">Update</string>
+    <string name="add_edit_note_warning_empty">Note must be specified</string>
+    <string name="add_edit_note_warning_not_existed">The requested Note has not already existed</string>
+    <string name="add_edit_note_message_link_bound_new">bound</string>
+    <string name="add_edit_note_message_link_bound_edit">bound</string>
+    <string name="add_edit_note_message_link_unbound_new">unbound</string>
+    <string name="add_edit_note_message_link_unbound_edit">unbound</string>
+    <string name="add_edit_note_message_link_will_unbound">Unable to load related Link, this Note will be saved as unbound</string>
+    <string name="action_mode_notes_delete">Delete</string>
+    <string name="action_mode_notes_select_all">Select/Deselect all Notes</string>
+    <string name="laano_notes_action_mode_selected">%1$d of %2$d selected</string>
+    <string name="toolbar_notes_item_mode_action">Switch to Edit mode</string>
+    <string name="toolbar_notes_item_expand_all">Expand all Notes</string>
+    <string name="toolbar_notes_item_collapse_all">Collapse all Notes</string>
+    <string name="toolbar_notes_item_clear_clipboard">Clear clipboard</string>
+    <string name="toolbar_notes_item_filter">Note filter</string>
+    <string name="toolbar_notes_item_mode_normal">Switch to the Normal mode</string>
+    <string name="toolbar_notes_item_mode_reading">Switch to the Reading mode</string>
+    <string name="toolbar_notes_search">Search</string>
+    <string name="toolbar_note_item_paste">Fill in form</string>
+    <string name="notes_delete_confirmation_title">Delete confirmation</string>
+    <string name="dialog_note_conflict_title_local">Local:</string>
+    <string name="dialog_note_conflict_title_cloud">Cloud:</string>
+    <string name="dialog_note_conflict_state_no_conflict">no conflict</string>
+    <string name="dialog_note_conflict_state_deleted">deleted</string>
+    <string name="dialog_note_conflict_state_updated">updated</string>
+    <string name="dialog_note_conflict_state_orphaned">orphaned</string>
+    <string name="dialog_note_conflict_state_not_found">not found</string>
+    <string name="dialog_note_conflict_state_error">error</string>
+    <string name="dialog_note_conflict_status_error_download">There was an error while downloading</string>
+    <string name="dialog_note_conflict_resolved_success">Conflict is successfully resolved</string>
+    <string name="dialog_note_conflict_resolved_error">There was an error while trying to resolve the conflict</string>
+    <string name="dialog_note_conflict_info">Status: %1$s, %2$s</string>
+    <string name="dialog_note_conflict_info_unbound">Unbound</string>
+    <string name="dialog_note_conflict_info_bound">Bound: %s</string>
+    <string name="dialog_note_conflict_info_orphaned">ID: %s</string>
+    <string name="dialog_note_conflicted_error">A conflict has been found while synchronizing</string>
+    <string name="dialog_note_cloud_error">There was an error while synchronizing</string>
+    <string name="dialog_note_save_success">Note has been saved</string>
+    <string name="dialog_note_delete_success">Selected Notes have been deleted</string>
+    <string name="dialog_do_not_show_checkbox">OK, please do not show again</string>
+    <string name="links_conflict_resolution_warning_title">Warning</string>
+    <string name="links_conflict_resolution_warning_message">All actions on the conflict resolution dialog will affect the Link and all it\'s Notes. If you want to process the Notes separately, please resolve the conflict manually.</string>
+    <string name="card_button_expand_note_description">Expand the Note</string>
+    <string name="card_button_collapse_note_description">Collapse the Note</string>
+
+    <string name="clipboard_service_extra_ready">The URL metadata is ready</string>
+    <string name="clipboard_service_extra_empty">No metadata available for the URL</string>
+    <string name="clipboard_service_extra_failed">Failed to load the URL</string>
+    <string name="clipboard_service_stopped">%s clipboard monitor is stopped</string>
+    <string name="fill_in_form_info_title">Information</string>
+    <string name="fill_in_form_info_message">This operation is using the normalized and extended clipboard content to try filling in or replacing the form fields. The original clipboard content remain intact, so feel free to use it as well.</string>
+    <string name="about_launch_google_play_error">Neither Google Play nor Browser are installed on this device</string>
+
+    <string name="sync_log_empty_title">Log is empty</string>
+
+    <plurals name="count_favorites">
+        <item quantity="one">%d Favorite</item>
+        <item quantity="other">%d Favorites</item>
+    </plurals>
+    <plurals name="count_links">
+        <item quantity="one">%d Link</item>
+        <item quantity="other">%d Links</item>
+    </plurals>
+    <plurals name="count_notes">
+        <item quantity="one">%d Note</item>
+        <item quantity="other">%d Notes</item>
+    </plurals>
+
+    <plurals name="favorites_delete_confirmation_message">
+        <item quantity="one">Are you sure you want to permanently delete the selected Favorite?</item>
+        <item quantity="other">Are you sure you want to permanently delete the %d selected Favorites?</item>
+    </plurals>
+    <plurals name="links_delete_confirmation_message">
+        <item quantity="one">You are about to permanently delete the selected Link. Do you want to remove all related Notes as well?</item>
+        <item quantity="other">You are about to permanently delete the %d selected Links. Do you want to remove all related Notes as well?</item>
+    </plurals>
+    <plurals name="notes_delete_confirmation_message">
+        <item quantity="one">Are you sure you want to permanently delete the selected Note?</item>
+        <item quantity="other">Are you sure you want to permanently delete the %d selected Notes?</item>
+    </plurals>
+    <plurals name="settings_fragment_restore_backup_found">
+        <item quantity="one">One backup is found</item>
+        <item quantity="other">%d backups are found</item>
+    </plurals>
+    <plurals name="actionbar_title_sync_log">
+        <item quantity="one">Sync log for the day</item>
+        <item quantity="other">Sync log for %d days</item>
+    </plurals>
+</resources>

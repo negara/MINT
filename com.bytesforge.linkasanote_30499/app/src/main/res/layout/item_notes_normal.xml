@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ LaaNo Android application
+  ~
+  ~ @author Aleksandr Borisenko <developer@laano.net>
+  ~ Copyright (C) 2017 Aleksandr Borisenko
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable name="note" type="com.bytesforge.linkasanote.data.Note" />
+        <variable name="presenter"
+            type="com.bytesforge.linkasanote.laano.notes.NotesContract.Presenter" />
+        <variable name="viewModel"
+            type="com.bytesforge.linkasanote.laano.notes.NotesViewModel" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> presenter.onNoteClick(note.id, note.conflicted)}"
+        android:onLongClick="@{() -> presenter.onNoteLongClick(note.id)}"
+        app:cardUseCompatPadding="true">
+        <!--android:background="?android:attr/selectableItemBackground"-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@{viewModel.getNoteBackground(note.conflicted)}">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/note_to_links"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/item_notes_note_to_links_button"
+                    android:layout_marginTop="@dimen/card_filter_button_margin_vertical"
+                    android:layout_marginBottom="@dimen/card_filter_button_margin_vertical"
+                    android:paddingTop="@dimen/card_filter_button_padding_vertical"
+                    android:paddingBottom="@dimen/card_filter_button_padding_vertical"
+                    android:paddingStart="@dimen/card_left_button_padding_start"
+                    android:paddingEnd="@dimen/card_button_padding"
+                    android:visibility="@{viewModel.actionMode ? View.INVISIBLE : View.VISIBLE}"
+                    android:onClick="@{() -> presenter.onToLinksClick(note.id)}"
+                    android:background="@{viewModel.getFilterBackground(note.id, viewModel.filterId)}"
+                    style="@style/Button.RecyclerView"
+                    bind:imageButtonEnabled="@{note.linkId != null}"
+                    app:srcCompat="@drawable/ic_chevron_left"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/note_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/card_left_checkbox_margin_start"
+                    android:contentDescription="@string/item_notes_checkbox"
+                    android:visibility="@{viewModel.actionMode ? View.VISIBLE : View.GONE}"
+                    android:checked="@{viewModel.isSelected(note.id, viewModel.selectionChanged)}"
+                    android:onClick="@{() -> presenter.onCheckboxClick(note.id)}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/note_to_links"
+                    app:layout_constraintEnd_toEndOf="@+id/note_to_links" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/card_text_to_button_margin_start"
+                    android:layout_marginEnd="@dimen/card_nearby_button_margin_end"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/note_to_links"
+                    app:layout_constraintEnd_toStartOf="@+id/note_toggle">
+
+                    <TextView
+                        android:id="@+id/note_filter_prefix"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/card_prefix_to_text_margin_end"
+                        android:text="@{viewModel.getFilterPrefix()}"
+                        android:textAppearance="@style/NotesText.Prefix" />
+
+                    <TextView
+                        android:id="@+id/note_note_caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{note.note}"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:textAppearance="@style/NotesText.Note" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/note_toggle"
+                    android:layout_width="48dp"
+                    android:layout_height="56dp"
+                    android:contentDescription="@{viewModel.getToggleDescription(note.id, viewModel.visibilityChanged)}"
+                    android:paddingTop="@dimen/card_button_padding_vertical"
+                    android:paddingBottom="@dimen/card_button_padding_vertical"
+                    android:paddingStart="@dimen/card_button_padding"
+                    android:paddingEnd="@dimen/card_right_button_padding_end"
+                    android:visibility="@{viewModel.actionMode ? View.INVISIBLE : View.VISIBLE}"
+                    android:onClick="@{() -> presenter.onToggleClick(note.id)}"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    style="@style/Button.RecyclerView"
+                    app:srcCompat="@{viewModel.isVisible(note.id, viewModel.visibilityChanged) ? @drawable/ic_expand_less : @drawable/ic_expand_more}"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <ImageButton
+                    android:id="@+id/note_edit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/item_notes_edit_button"
+                    android:paddingTop="@dimen/card_button_padding_vertical"
+                    android:paddingBottom="@dimen/card_button_padding_vertical"
+                    android:paddingStart="@dimen/card_button_padding"
+                    android:paddingEnd="@dimen/card_right_button_padding_end"
+                    android:visibility="@{viewModel.actionMode ? View.VISIBLE : View.GONE}"
+                    android:onClick="@{() -> presenter.onEditClick(note.id)}"
+                    style="@style/Button.RecyclerView"
+                    app:srcCompat="@drawable/ic_edit"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/note_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/card_text_margin_vertical"
+                android:paddingBottom="@dimen/card_text_margin_vertical"
+                android:paddingStart="@dimen/card_text_margin_horizontal"
+                android:paddingEnd="@dimen/card_text_margin_horizontal"
+                android:text="@{note.note}"
+                android:background="@{viewModel.getNoteNoteBackground(note.conflicted)}"
+                android:visibility="@{viewModel.isVisible(note.id, viewModel.visibilityChanged) ? View.VISIBLE : View.GONE}" />
+
+            <Space
+                android:id="@+id/note_spacer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/card_note_spacer_height"
+                android:visibility="@{!viewModel.isVisible(note.id, viewModel.visibilityChanged) || note.tags == null ? View.GONE : View.VISIBLE}" />
+
+            <TextView
+                android:id="@+id/note_tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/card_text_margin_horizontal"
+                android:layout_marginEnd="@dimen/card_text_margin_horizontal"
+                android:text="@{note.tags}"
+                android:lineSpacingExtra="@dimen/tags_line_spacing_extra"
+                android:visibility="@{note.tags == null ? View.GONE : View.VISIBLE}" />
+
+            <Space
+                android:id="@+id/note_bottom_spacer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/card_note_bottom_spacer_height"
+                android:visibility="@{viewModel.isVisible(note.id, viewModel.visibilityChanged) || note.tags != null ? View.VISIBLE : View.GONE}" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</layout>

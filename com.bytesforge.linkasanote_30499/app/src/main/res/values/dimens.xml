@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ LaaNo Android application
+  ~
+  ~ @author Aleksandr Borisenko <developer@laano.net>
+  ~ Copyright (C) 2017 Aleksandr Borisenko
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="minimum_clickable_height">48dp</dimen>
+    <dimen name="drawer_header_height">140dp</dimen>
+    <dimen name="drawer_header_status_margin_top">4dp</dimen>
+    <dimen name="drawer_header_padding">16dp</dimen>
+    <dimen name="drawer_header_subtitle_height">56dp</dimen>
+    <dimen name="drawer_header_status_icon_margin_end">12dp</dimen>
+    <dimen name="screen_edge_padding">16dp</dimen>
+    <dimen name="add_edit_account_logo_margin_top">8sp</dimen>
+    <dimen name="add_edit_account_title_text_size">24sp</dimen>
+    <dimen name="add_edit_account_description_padding">24dp</dimen>
+    <dimen name="add_edit_account_status_min_height">32dp</dimen>
+    <dimen name="add_edit_account_status_icon_padding">8dp</dimen>
+    <dimen name="add_edit_account_refresh_margin_bottom">12dp</dimen>
+    <dimen name="main_button_margin_vertical">16dp</dimen>
+    <dimen name="main_button_padding">16dp</dimen>
+    <dimen name="token_corners_radius">6dp</dimen>
+    <dimen name="token_vertical_padding">4dp</dimen>
+    <dimen name="token_horizontal_padding">8dp</dimen>
+    <dimen name="token_text_size">14sp</dimen>
+    <dimen name="tags_line_spacing_extra">2dp</dimen>
+    <dimen name="add_edit_account_url_form_space">16dp</dimen>
+    <dimen name="item_manage_accounts_layout_height">72dp</dimen>
+    <dimen name="recycler_view_left_icon_margin_start">16dp</dimen>
+    <dimen name="recycler_view_text_margin_vertical">16dp</dimen>
+    <dimen name="recycler_view_text_margin_horizontal">16dp</dimen>
+    <dimen name="recycler_view_left_checkbox_margin_start">8dp</dimen>
+    <dimen name="recycler_view_text_to_button_margin_start">24dp</dimen>
+    <dimen name="recycler_view_prefix_to_text_margin_end">4dp</dimen>
+    <dimen name="recycler_view_nearby_button_margin_end">8dp</dimen>
+    <dimen name="recycler_view_button_padding_vertical">16dp</dimen>
+    <dimen name="recycler_view_filter_button_padding_vertical">8dp</dimen>
+    <dimen name="recycler_view_filter_button_margin_vertical">8dp</dimen>
+    <dimen name="recycler_view_button_padding">8dp</dimen>
+    <dimen name="recycler_view_right_button_padding_end">16dp</dimen>
+    <dimen name="recycler_view_left_button_padding_start">16dp</dimen>
+    <dimen name="recycler_view_tags_margin_bottom">16dp</dimen>
+    <dimen name="dialog_minimum_vertical_margin">48dp</dimen>
+    <dimen name="dialog_padding">8dp</dimen>
+    <dimen name="dialog_margin_content">24dp</dimen>
+    <dimen name="dialog_title_vertical_padding">8dp</dimen>
+    <dimen name="dialog_title_spacer">16dp</dimen>
+    <dimen name="dialog_padding_button_bar_vertical">8dp</dimen>
+    <dimen name="dialog_tags_margin_top">12dp</dimen>
+    <dimen name="dialog_state_margin_end">8dp</dimen>
+    <dimen name="dialog_margin_status_top">12dp</dimen>
+    <dimen name="dialog_margin_status_bottom">16dp</dimen>
+    <dimen name="dialog_checkbox_padding">8dp</dimen>
+    <dimen name="dialog_checkbox_aligned_horizontal_padding">16dp</dimen>
+    <dimen name="about_margin_vertical_text">16dp</dimen>
+    <dimen name="about_margin_vertical">4dp</dimen>
+
+    <dimen name="card_left_checkbox_margin_start">8dp</dimen>
+    <dimen name="card_text_to_button_margin_start">24dp</dimen>
+    <dimen name="card_prefix_to_text_margin_end">4dp</dimen>
+    <dimen name="card_text_margin_vertical">16dp</dimen>
+    <dimen name="card_text_margin_horizontal">16dp</dimen>
+    <dimen name="card_nearby_button_margin_end">8dp</dimen>
+    <dimen name="card_button_padding">8dp</dimen>
+    <dimen name="card_button_padding_vertical">16dp</dimen>
+    <dimen name="card_filter_button_padding_vertical">8dp</dimen>
+    <dimen name="card_filter_button_margin_vertical">8dp</dimen>
+    <dimen name="card_button_padding_horizontal">12dp</dimen>
+    <dimen name="card_right_button_padding_end">16dp</dimen>
+    <dimen name="card_left_button_padding_start">16dp</dimen>
+    <dimen name="card_note_bottom_spacer_height">24dp</dimen>
+    <dimen name="card_note_spacer_height">16dp</dimen>
+    <dimen name="card_link_spacer_height">8dp</dimen>
+    <dimen name="card_link_notes_bottom_spacer_height">8dp</dimen>
+    <dimen name="card_link_add_note_margin_start">4dp</dimen>
+    <dimen name="card_notes_count_margin_horizontal">4dp</dimen>
+
+    <dimen name="sync_result_padding_top">4dp</dimen>
+    <dimen name="sync_result_first_space_top">8dp</dimen>
+    <dimen name="sync_result_last_space_bottom">24dp</dimen>
+    <dimen name="sync_result_started_padding_top">16dp</dimen>
+    <dimen name="sync_result_started_padding_bottom">4dp</dimen>
+
+    <dimen name="app_default_size_w">600dp</dimen>
+    <dimen name="app_default_size_h">600dp</dimen>
+    <dimen name="app_minimum_size_w">600dp</dimen>
+    <dimen name="app_minimum_size_h">600dp</dimen>
+</resources>

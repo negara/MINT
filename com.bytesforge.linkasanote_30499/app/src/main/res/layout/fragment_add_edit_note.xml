@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ LaaNo Android application
+  ~
+  ~ @author Aleksandr Borisenko <developer@laano.net>
+  ~ Copyright (C) 2017 Aleksandr Borisenko
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable name="viewModel"
+            type="com.bytesforge.linkasanote.laano.notes.addeditnote.AddEditNoteViewModel" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/snackbar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        bind:snackbarId="@{viewModel.snackbarId}">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- NOTE: problem with ConstraintLayout: random vertical gaps when width=0dp & align to start/end=parent -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/screen_edge_padding"
+                    android:background="@color/link_background"
+                    android:padding="@dimen/screen_edge_padding"
+                    android:visibility="@{viewModel.linkStatus != null || viewModel.linkName != null || viewModel.linkLink != null ? View.VISIBLE : View.GONE}">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/link_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.linkName}"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            android:textAppearance="@style/NotesText.LinkName"
+                            android:visibility="@{viewModel.linkName == null ? View.GONE : View.VISIBLE}" />
+                        <TextView
+                            android:id="@+id/link_link"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@{viewModel.linkLink}"
+                            android:maxLines="1"
+                            android:ellipsize="end"
+                            android:visibility="@{viewModel.linkLink == null ? View.GONE : View.VISIBLE}" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/link_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{viewModel.linkStatus}"
+                        android:gravity="center"
+                        android:visibility="@{viewModel.linkStatus == null ? View.GONE : View.VISIBLE}" />
+                </FrameLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/screen_edge_padding"
+                    android:paddingStart="@dimen/screen_edge_padding"
+                    android:paddingEnd="@dimen/screen_edge_padding"
+                    bind:noteError="@{viewModel.noteErrorText}">
+
+                    <EditText
+                        android:id="@+id/note_note"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/add_edit_note_note_hint"
+                        android:inputType="textMultiLine"
+                        android:gravity="top"
+                        android:lines="@integer/add_edit_note_lines"
+                        android:minLines="@integer/add_edit_note_lines"
+                        android:maxLines="@integer/add_edit_note_lines"
+                        android:scrollbars="vertical"
+                        android:text="@={viewModel.noteNote}"
+                        android:afterTextChanged="@{() -> viewModel.afterNoteChanged()}"
+                        android:onTouch="@{viewModel::onNoteTouch}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/note_tags_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingStart="@dimen/screen_edge_padding"
+                    android:paddingEnd="@dimen/screen_edge_padding">
+
+                    <com.bytesforge.linkasanote.laano.TagsCompletionView
+                        android:id="@+id/note_tags"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/add_edit_note_tags_hint"
+                        android:inputType="text|textNoSuggestions|textMultiLine"
+                        android:lineSpacingExtra="@dimen/tags_line_spacing_extra"
+                        android:onFocusChange="@{viewModel::onTagsFocusChange}" />
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/add_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="@dimen/main_button_padding"
+                    android:layout_marginTop="@dimen/main_button_margin_vertical"
+                    android:layout_marginBottom="@dimen/main_button_margin_vertical"
+                    android:text="@{viewModel.addButtonText}"
+                    android:enabled="@{viewModel.addButton}"
+                    android:onClick="@{() -> viewModel.onAddButtonClick()}" />
+            </LinearLayout>
+        </ScrollView>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

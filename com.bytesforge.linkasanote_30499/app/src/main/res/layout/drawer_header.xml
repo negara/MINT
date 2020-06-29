@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ LaaNo Android application
+  ~
+  ~ @author Aleksandr Borisenko <developer@laano.net>
+  ~ Copyright (C) 2017 Aleksandr Borisenko
+  ~
+  ~ This program is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable name="viewModel"
+            type="com.bytesforge.linkasanote.laano.LaanoDrawerHeaderViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/drawer_header_height"
+        android:background="@color/color_primary"
+        android:theme="@style/Laano.NavHeader"
+        android:padding="@dimen/drawer_header_padding">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/drawer_header_status_margin_top">
+
+            <ImageView
+                android:id="@+id/drawer_status_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/drawer_header_status_icon_description"
+                android:layout_alignParentStart="true"
+                android:layout_marginEnd="@dimen/drawer_header_status_icon_margin_end"
+                app:srcCompat="@drawable/ic_sync_circle_white_36dp"
+                bind:tintCompat="@{viewModel.statusIconTint}" />
+            <TextView
+                android:id="@+id/drawer_last_synced_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{viewModel.lastSyncedText}"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textAppearance="@style/DrawerText.LastSynced"
+                android:layout_toEndOf="@+id/drawer_status_icon" />
+            <TextView
+                android:id="@+id/drawer_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="@{viewModel.statusText}"
+                android:layout_below="@+id/drawer_last_synced_label"
+                android:layout_toEndOf="@id/drawer_status_icon" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/drawer_header_subtitle_height"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/drawer_app_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:text="@string/app_name_full"
+                android:textAppearance="@style/DrawerText.AppName"
+                android:visibility="@{viewModel.appName ? View.VISIBLE : View.GONE}" />
+            <TextView
+                android:id="@+id/drawer_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="@{viewModel.usernameText}"
+                android:textAppearance="@style/DrawerText.Username"
+                android:layout_alignParentStart="true"
+                android:layout_above="@+id/drawer_account_name"
+                android:visibility="@{viewModel.username ? View.VISIBLE : View.GONE}" />
+            <TextView
+                android:id="@+id/drawer_account_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentBottom="true"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:text="@{viewModel.accountNameText}"
+                android:textAppearance="@style/DrawerText"
+                android:visibility="@{viewModel.accountName ? View.VISIBLE : View.GONE}" />
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>
